@@ -1,14 +1,12 @@
 package brianpelinku.u5w2d1.user;
 
 import brianpelinku.u5w2d1.exceptions.NotFoundException;
-import lombok.Getter;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-@Getter
 @Service
 public class UserService {
     private List<User> usersList = new ArrayList<>();
@@ -32,6 +30,7 @@ public class UserService {
     public User saveUser(User bodyUser) {
         Random random = new Random();
         bodyUser.setId(random.nextInt(1, 100));
+        bodyUser.setAvatar("https://ui-avatars.com/api/?name=" + bodyUser.getNome() + "+" + bodyUser.getCognome());
         this.usersList.add(bodyUser);
         return bodyUser;
     }

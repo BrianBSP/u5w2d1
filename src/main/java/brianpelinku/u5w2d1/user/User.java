@@ -15,4 +15,5 @@ public class User {
     private String cognome;
     private String email;
     private LocalDate dataDiNascita;
+    private String avatar;
 }

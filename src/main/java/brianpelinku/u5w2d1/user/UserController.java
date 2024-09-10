@@ -45,14 +45,15 @@ public class UserController {
 
     // 4. Put: /users/{userId}
     @PutMapping("/{userId}")
-    public String findUserByIdAndUpdate(@PathVariable int userId) {
-        return "utente modificato";
+    public User findUserByIdAndUpdate(@PathVariable int userId, @RequestBody User userUpdate) {
+        return userService.getUserByIdAndUpdate(userId, userUpdate);
     }
 
     // 5. Delete: /users/{userId}
     @DeleteMapping("/{userId}")
-    public String findUserByIdAndDelete(@PathVariable int userId) {
-        return "utente eliminato";
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void findUserByIdAndDelete(@PathVariable int userId) {
+        userService.getByIdAndDelete(userId);
     }
 
 
