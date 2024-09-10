@@ -10,7 +10,6 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @ToString
 public class User {
-    @Setter(AccessLevel.NONE)
     private int id;
     private String nome;
     private String cognome;
